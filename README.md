@@ -34,7 +34,7 @@ Ringkasnya, aliran datanya adalah INAPROC → Scraper PHP → PostgreSQL (inapro
 
 **Frontend (folder `frontend`)**
 
-* Dibangun dengan Vue 3, Vite, Pinia, dan Vue Router. Tampilan responsif dari layar ponsel sampai monitor lebar.
+* Dibangun dengan Vue 3, Vite, Pinia, dan Vue Router. 
 * Produk tampil sebagai grid card lengkap dengan gambar, vendor, harga, nilai TKDN, dan spesifikasi daya. Pagination, pencarian, dan filter rentang harga memakai parameter API yang sama dengan backend.
 * Wishlist disimpan lewat store Pinia yang otomatis ditulis ke LocalStorage pada setiap perubahan, sehingga isi wishlist bertahan walau halaman dimuat ulang atau browser ditutup.
 * Gambar produk dicerminkan ke folder `frontend/public/img` karena CDN INAPROC menolak permintaan gambar yang membawa referer dari domain lain.
@@ -178,7 +178,7 @@ npm run dev
 
 Buka `http://localhost:5173` di browser. Halaman utama menampilkan katalog lengkap dengan pencarian, filter harga, dan pagination. Tekan ikon hati atau tombol Wishlist pada kartu produk untuk menyimpannya, lalu buka halaman Wishlist lewat menu di kanan atas. Isi wishlist tetap tersimpan meski halaman dimuat ulang.
 
-Catatan, backend harus berjalan di port 8123 karena alamat itulah yang dipakai frontend secara bawaan. Alamat lain bisa diatur lewat variabel `VITE_API_BASE`.
+Untuk catatan, backend harus berjalan di port 8123 karena alamat itulah yang dipakai frontend secara bawaan. Alamat lain bisa diatur lewat variabel `VITE_API_BASE`.
 
 ## Menjalankan Feature Test
 
@@ -193,4 +193,4 @@ Pengujian memakai database `catalog_api_test` yang terisolasi penuh, jadi data h
 
 * Sebagian vendor di INAPROC tidak mencantumkan harga sesungguhnya dan sistem sumber menampilkan nilai simbolis sangat kecil dengan tombol Hubungi Vendor. Scraper menyimpan apa adanya sesuai sumber, dan frontend menampilkannya sebagai Hubungi Vendor.
 * Atribut dinamis diambil dari teks bebas yang ditulis vendor, jadi produk yang vendornya tidak menuliskan spesifikasi lengkap akan memiliki nilai kosong. Ini sesuai sifat datanya yang memang opsional.
-* Data merupakan potret pada saat scraping. Harga dan stok di situs sumber dapat berubah sewaktu waktu, jadi jalankan scraper secara berkala bila membutuhkan data terkini.
+* Data merupakan potret pada saat scraping. Harga dan stok di situs sumber dapat berubah sewaktu waktu, jadi scraper harus dipakai secara berkala bila membutuhkan data terkini.
